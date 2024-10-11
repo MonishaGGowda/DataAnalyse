@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creates Framework</title>
+    <link rel="stylesheet" href="viewpage.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header-component></header-component>
+    <div class="table-container">
+    <table id="analysis-table">
+        <thead>
+            <tr>
+                <th>Analysis Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be dynamically generated here -->
+        </tbody>
+    </table>
+    <script>
+
+        const data = [
+            { name: 'Mystery Solving', description: 'Solving various mysteries' },
+            { name: 'Find the Culprit', description: 'Identifying the suspect in cases' },
+        ];
+
+        function populateTable(data) {
+            const tableBody = document.querySelector('#analysis-table tbody');
+
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><a href="#">${item.name}</a></td>
+                    <td>${item.description}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+
+            const rowsToAdd = 10 - data.length;
+            for (let i = 0; i < rowsToAdd; i++) {
+                const emptyRow = document.createElement('tr');
+                emptyRow.innerHTML = `
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                `;
+                tableBody.appendChild(emptyRow);
+            }
+        }
+        populateTable(data);
+    </script>
+    </div>
+</body>
+<script src="viewpage.js"></script>
+<script src="../header_component/header_component.js" defer></script>
+</html>
