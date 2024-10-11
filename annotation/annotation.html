@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annotate Document - Data Analyse</title>
+  <link rel="stylesheet" href="annotation.css">
+</head>
+<body>
+  <header>
+    <h1>Data Analyse - Annotate Document</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="list.html">Documents</a></li>
+        <li><a href="connections.html">Connections</a></li>
+        <li><a href="annotation.html">Annotation</a></li>
+        <li><a href="annotations.html">Stored Annotations</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Left pane for document list and relevancy selection -->
+      <div class="left-pane">
+        <h2>Documents</h2>
+        <textarea id="searchBox" placeholder="Enter text to search..."></textarea>
+        <button id="filterButton" onclick="filterDocuments()">Filter</button>
+        <button id="clearFilterButton" onclick="clearFilter()">Clear Filter</button>
+
+        <ul id="documentList">
+          <!-- Document List will be dynamically updated -->
+        </ul>
+      </div>
+
+      <!-- Center pane for document content -->
+      <div class="center-pane" id="documentContainer">
+        <h2>Document Content</h2>
+        <p>Select a document from the left pane to view its content.</p>
+      </div>
+
+      <!-- Right pane for annotations -->
+      <div class="right-pane">
+        <h2>Annotations</h2>
+        <div id="annotationsContainer">
+          <!-- Annotations will be dynamically added -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Highlighter button -->
+    <button id="highlightButton" onclick="toggleHighlighter()">Enable Highlighter</button>
+
+    <!-- Annotation Popup -->
+    <div id="annotationPopup" class="popup">
+      <textarea id="annotationText" rows="4" placeholder="Enter your annotation here..."></textarea><br>
+      <button onclick="saveAnnotation()">Add Annotation</button>
+      <button type="button" onclick="closeAnnotationPopup()">Cancel</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Data Analyse</p>
+  </footer>
+
+  <script src="annotation.js"></script>
+</body>
+</html>
