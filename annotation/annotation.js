@@ -4,14 +4,23 @@ let documents = [
   { name: "Document 3", content: "Here is another document with relevant content.", relevancy: "high", annotations: ["Annotation 5", "Annotation 6"] },
 ];
 
-let filteredDocuments = [...documents]; // Clone of the documents array for filtering
-let selectedDocument = null; // Track the currently selected document
-let highlighterEnabled = false; // Highlighter toggle
+let filteredDocuments = [...documents]; 
+let selectedDocument = null; 
+let highlighterEnabled = false; 
 
-// Function to render the document list with relevancy dropdowns
+const urlParams = new URLSearchParams(window.location.search);
+const documentName = urlParams.get('document');
+
+if (documentName) {
+    const documentIndex = documents.findIndex(doc => doc.name === documentName);
+    if (documentIndex !== -1) {
+        selectDocument(documentIndex);
+    }
+}
+
 function renderDocumentList() {
   const documentList = document.getElementById("documentList");
-  documentList.innerHTML = ""; // Clear the current list
+  documentList.innerHTML = ""; 
 
   filteredDocuments.forEach((doc, index) => {
     const li = document.createElement("li");
@@ -19,7 +28,7 @@ function renderDocumentList() {
     const docLink = document.createElement("a");
     docLink.href = "#";
     docLink.textContent = doc.name;
-    docLink.onclick = () => selectDocument(index); // On click, select the document
+    docLink.onclick = () => selectDocument(index);
     li.appendChild(docLink);
 
     const relevancySelect = document.createElement("select");

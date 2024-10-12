@@ -8,8 +8,8 @@ class HeaderComponent extends HTMLElement {
               <span>DATA ANALYSE</span>
             </div>
             <div class="nav-links">
-              <a href="#">Profile</a>
-              <a href="#">Logout</a>
+              <a href="../home_page/homepage.html">Home</a>
+              <a href="../login_page/index.html">Logout</a>
             </div>
           </nav>
         </header>

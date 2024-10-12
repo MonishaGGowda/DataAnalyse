@@ -4,6 +4,7 @@ document.getElementById('login-btn').addEventListener('click', function() {
 
     if (username && password) {
         alert('Logged in successfully!');
+        window.location.href = '../home_page/homepage.html';
     } else {
         alert('Please enter username and password.');
     }
@@ -15,6 +16,7 @@ document.getElementById('signup-btn').addEventListener('click', function() {
 
     if (username && email && password) {
         alert('Signed up successfully!');
+        window.location.href = '../home_page/homepage.html';
     } else {
         alert('Please fill all fields.');
     }
