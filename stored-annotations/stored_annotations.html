@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annotations Card List</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="stored_annotations.css">
+</head>
+<body>
+
+<header-component></header-component>
+
+<section class="connections-header">
+    <h1>Annotations</h1>
+    <p>Explore the list of annotations from various documents</p>
+</section>
+
+<div class="filter-section">
+    <div class="filter-container">
+        <input type="text" id="filterInput" placeholder="Search Documents...">
+        <select id="tagSelect" style="margin-right: 10px;">
+            <option value="" disabled selected>Select a tag to filter...</option>
+        </select>
+    </div>
+</div>
+
+<div class="card-list"></div>
+
+<!-- Ensure the script is loaded at the end of the body -->
+<script src="../header_component/header_component.js" defer></script>
+<script>
+    const annotations = [
+        {
+            title: "Annotation 1",
+            source: "Document 1",
+            sourceLink: "document1.html",
+            description: "This is a brief description of Annotation 1.",
+            dateAdded: "2024-10-10",
+            addedBy: "User A",
+            tags: ["high"]
+        },
+        {
+            title: "Annotation 2",
+            source: "Document 2",
+            sourceLink: "document2.html",
+            description: "This is a brief description of Annotation 2.",
+            dateAdded: "2024-10-11",
+            addedBy: "User B",
+            tags: ["low"]
+        },
+        {
+            title: "Annotation 3",
+            source: "Document 3",
+            sourceLink: "document3.html",
+            description: "This is a brief description of Annotation 3.",
+            dateAdded: "2024-10-12",
+            addedBy: "User A",
+            tags: ["high"]
+        },
+        {
+            title: "Annotation 4",
+            source: "Document 3",
+            sourceLink: "document3.html",
+            description: "This is a brief description of Annotation 4.",
+            dateAdded: "2024-10-12",
+            addedBy: "User C",
+            tags: ["high"]
+        }
+    ];
+
+    const cardListContainer = document.querySelector('.card-list');
+    const tagSelect = document.getElementById('tagSelect');
+    const filterInput = document.getElementById('filterInput');
+
+// Function to display annotations
+function displayAnnotations(filteredAnnotations) {
+    cardListContainer.innerHTML = ''; // Clear the current card list
+    filteredAnnotations.forEach(annotation => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+
+        card.innerHTML = `
+            <h3 class="annotation-title">${annotation.title}</h3>
+            <p class="source-document">
+                Source: <a href="../annotation/annotation.html?document=${encodeURIComponent(annotation.source)}" target="_blank">${annotation.source}</a>
+            </p>
+            <p class="annotation-text">${annotation.description}</p>
+            <p class="annotation-meta">
+                Date Added: ${annotation.dateAdded}<br>
+                Added By: ${annotation.addedBy}
+            </p>
+            <p class="annotation-tags">
+                Tags: 
+                ${annotation.tags.map(tag => `<span class="tag">${tag}</span>`).join(', ')}
+            </p>
+        `;
+
+        cardListContainer.appendChild(card);
+    });
+}
+
+    // Populate the tag dropdown with unique tags
+    function populateTagSelect() {
+        const tags = new Set(); // Use a Set to avoid duplicates
+        annotations.forEach(annotation => {
+            annotation.tags.forEach(tag => tags.add(tag));
+        });
+
+        tags.forEach(tag => {
+            const option = document.createElement('option');
+            option.value = tag;
+            option.textContent = tag;
+            tagSelect.appendChild(option);
+        });
+    }
+
+    // Show the annotations based on the selected tag
+    tagSelect.addEventListener('change', function() {
+        const selectedTag = tagSelect.value;
+        const filteredAnnotations = annotations.filter(annotation =>
+            annotation.tags.includes(selectedTag)
+        );
+        displayAnnotations(filteredAnnotations);
+    });
+
+        // Search functionality for documents
+        filterInput.addEventListener('input', function() {
+        const searchTerm = filterInput.value.toLowerCase();
+        const filteredAnnotations = annotations.filter(annotation =>
+            annotation.source.toLowerCase().includes(searchTerm)
+        );
+        displayAnnotations(filteredAnnotations);
+    });
+
+
+    // Initially populate and display all annotations
+    populateTagSelect();
+    displayAnnotations(annotations);
+</script>
+</body>
+</html>

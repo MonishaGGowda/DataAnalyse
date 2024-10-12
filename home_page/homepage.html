@@ -20,7 +20,7 @@
         <div class="feature">
             <img src="../icons/create.png" alt="Create">
             <h3>New Analysis</h3>
-            <button id="openPopupBtn">Create</button>
+            <button id="openPopupBtn" onclick="viewCreatePage()">Create</button>
         </div>
 
         <div class="feature">
@@ -33,11 +33,16 @@
     <div id="popupForm" class="popup-form" style="display: none;">
         <div class="form-container">
             <span class="close-btn" id="closeBtn">&times;</span>
+            <div>
             <h2>Enter the Analysis</h2>
+        </div>
             <label for="Name">Name:</label>
+           
             <input type="text" id="name" placeholder="Enter the name of the Analysis">
+            <div>
             <label for="desc">Description:</label>
             <input type="desc" id="desc" placeholder="Enter the description">
+        </div>
             <button type="submit" class="submit-btn">Submit</button>
         </div>
     </div>

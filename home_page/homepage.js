@@ -15,3 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         openPopupBtn.addEventListener('click', openPopupFunction);
     }
 });
+
+function viewCreatePage(){
+    window.location = "../annotation/annotation.html"
+}
