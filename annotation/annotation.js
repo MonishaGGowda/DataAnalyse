@@ -189,41 +189,45 @@ function uploadDocuments() {
 
           // Create a new document object and push it into the documents array
           const newDocument = {
-            title: file.name, // Use the file name as the document title
+            name: file.name, // Use the file name as the document name
             content: fileContent,
             annotations: [],
             relevancy: "low" // Default relevancy can be set to low
           };
 
-          // Add the new document to the list of documents
+          // Add the new document to the main documents array
           documents.push(newDocument);
 
-          // Update the left pane to display the new document
-          updateDocumentsList();
+          // Also update the filteredDocuments array to include this new document
+          filteredDocuments.push(newDocument);
+
+          // Re-render the document list after the new document is added
+          renderDocumentList();
         };
 
-        reader.readAsText(file); // Read the file content as text
+        reader.readAsText(file); // Read the file as text
       } else {
-        alert("Only .txt files are allowed.");
+        alert("Please upload only .txt files.");
       }
     }
+  } else {
+    alert("No files selected for upload.");
   }
 }
-
 // Function to update the left pane with the new list of documents
 function updateDocumentsList() {
   const documentsList = document.getElementById("documentsList");
 
-  // Clear the current list
-  documentsList.innerHTML = "";
+      // Clear the current list
+      documentsList.innerHTML = "";
 
-  // Loop through the documents array and display each document in the list
-  documents.forEach((doc, index) => {
-    const listItem = document.createElement("li");
-    listItem.textContent = doc.title;
-    listItem.onclick = function () {
-      selectDocument(index); // This will handle selecting a document
-    };
-    documentsList.appendChild(listItem);
-  });
+      // Loop through the documents array and display each document in the list
+      documents.forEach((doc, index) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = doc.title;
+        listItem.onclick = function () {
+          selectDocument(index); // This will handle selecting a document
+        };
+        documentsList.appendChild(listItem);
+      });
 }
