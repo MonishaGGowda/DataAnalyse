@@ -19,6 +19,7 @@ main {
     align-items: center;
     margin-bottom: 40px;
 }
+
 .title-box {
     background-color: #e0e0e0;
     padding: 40px;
@@ -30,6 +31,10 @@ main {
     text-align: center;
     border-radius: 8px;
 }
+.title-box h1 {
+    font-size: 60px; /* Increased font size for the DocuSense title */
+    font-weight: bold;
+}
 .auth-container {
     display: flex;
     flex-basis: 50%;
@@ -37,53 +42,60 @@ main {
 }
 .auth-container > div {
     margin-left: 20px;
+    font-size: 14px; /* Decreased font size for login and sign-up */
 }
-input[type=text], input[type=password], input[type=email] {
+input[type=text],
+input[type=password],
+input[type=email] {
     display: block;
     width: calc(100% - 20px);
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 8px; /* Slightly smaller input padding */
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 14px; /* Reduced input text size */
 }
 button {
     background-color: black;
     color: white;
     border: none;
-    padding: 12px 20px;
+    padding: 10px 18px; /* Reduced button padding */
     border-radius: 4px;
     cursor: pointer;
+    font-size: 14px; /* Reduced button font size */
 }
 button:hover {
     background-color: #333;
 }
 .signup p, .login p {
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0;
 }
 footer {
     background-color: #f8f8f8;
-    padding: 20px 20px;
+    padding: 10px 0;
+    font-size: 12px; /* Reduced footer text size */
     width: 100%;
     position: relative;
     bottom: 0;
 }
-.footer-nav {
-    margin-bottom: 10px; /* Space between nav and content */
-}
-.footer-nav ul {
-    list-style-type: none;
+.footer-nav ul, .social-media {
     display: flex;
-    justify-content: center; /* Center the navigation links */
-    gap: 30px; /* Space between links */
+    justify-content: center;
+    gap: 20px; /* Space between links and icons */
+    list-style-type: none;
+    margin-bottom: 15px;
+    padding: 0;
 }
-.footer-nav ul li a {
+.footer-nav ul li a, .social-media a {
     text-decoration: none;
     color: black;
 }
-.footer-nav ul li a:hover {
-    text-decoration: underline; /* Underline on hover */
+.footer-nav ul li a:hover, .social-media a:hover {
+    color: #0077b5;
+}
+.social-media a {
+    font-size: 20px;
 }
 .footer-content {
     display: flex;
@@ -91,45 +103,39 @@ footer {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    padding-top: 10px;
+}
+.footer-left, .footer-right {
+    display: flex;
+    align-items: center;
 }
 .footer-left {
-    display: flex;
-    gap: 10px; /* Space between language buttons */
+    gap: 10px;
 }
 .footer-left button {
-    background-color: #000000;
-    border: 1px solid #000000;
+    background-color: #000;
+    border: 1px solid #000;
     border-radius: 4px;
     padding: 5px 15px;
     cursor: pointer;
 }
 .footer-left button:hover {
-    background-color: #000000;
-}
-.footer-right {
-    text-align: right;
+    background-color: #000;
 }
 .footer-right p {
     margin: 0;
-    font-size: 14px;
-    color: #000000;
+    font-size: 12px;
+    color: #000;
 }
 @media (max-width: 768px) {
-    .intro {
+    .intro, .auth-container {
         flex-direction: column;
         align-items: center;
     }
-
-    .auth-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .footer-content {
         flex-direction: column;
         text-align: center;
     }
-
     .footer-right {
         margin-top: 10px;
     }
