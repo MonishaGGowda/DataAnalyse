@@ -19,7 +19,6 @@ main {
     align-items: center;
     margin-bottom: 40px;
 }
-
 .title-box {
     background-color: #e0e0e0;
     padding: 40px;
@@ -32,8 +31,14 @@ main {
     border-radius: 8px;
 }
 .title-box h1 {
-    font-size: 60px; /* Increased font size for the DocuSense title */
+    font-size: 60px; 
     font-weight: bold;
+    margin-bottom: 10px; 
+}
+.title-box p {
+    margin-top: 5px;  
+    font-size: 18px;  
+    line-height: 1.5; 
 }
 .auth-container {
     display: flex;
@@ -42,7 +47,7 @@ main {
 }
 .auth-container > div {
     margin-left: 20px;
-    font-size: 14px; /* Decreased font size for login and sign-up */
+    font-size: 14px; 
 }
 input[type=text],
 input[type=password],
@@ -50,19 +55,19 @@ input[type=email] {
     display: block;
     width: calc(100% - 20px);
     margin-bottom: 20px;
-    padding: 8px; /* Slightly smaller input padding */
+    padding: 8px; 
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 14px; /* Reduced input text size */
+    font-size: 14px; 
 }
 button {
     background-color: black;
     color: white;
     border: none;
-    padding: 10px 18px; /* Reduced button padding */
+    padding: 10px 18px; 
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px; /* Reduced button font size */
+    font-size: 14px; 
 }
 button:hover {
     background-color: #333;
@@ -74,7 +79,7 @@ button:hover {
 footer {
     background-color: #f8f8f8;
     padding: 10px 0;
-    font-size: 12px; /* Reduced footer text size */
+    font-size: 12px; 
     width: 100%;
     position: relative;
     bottom: 0;
@@ -82,20 +87,21 @@ footer {
 .footer-nav ul, .social-media {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Space between links and icons */
+    gap: 20px; 
     list-style-type: none;
     margin-bottom: 15px;
     padding: 0;
-}
-.footer-nav ul li a, .social-media a {
+}.footer-nav ul li a, .social-media a {
     text-decoration: none;
     color: black;
 }
 .footer-nav ul li a:hover, .social-media a:hover {
     color: #0077b5;
 }
-.social-media a {
-    font-size: 20px;
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 .footer-content {
     display: flex;
