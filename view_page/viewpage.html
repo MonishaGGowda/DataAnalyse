@@ -30,27 +30,28 @@
         ];
 
         function populateTable(data) {
-            const tableBody = document.querySelector('#analysis-table tbody');
+    const tableBody = document.querySelector('#analysis-table tbody');
 
-            data.forEach(item => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td><a href="#">${item.name}</a></td>
-                    <td>${item.description}</td>
-                `;
-                tableBody.appendChild(row);
-            });
+    data.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td><a href="../annotation/annotation.html?analysis=${encodeURIComponent(item.name)}">${item.name}</a></td>
+            <td>${item.description}</td>
+        `;
+        tableBody.appendChild(row);
+    });
 
-            const rowsToAdd = 10 - data.length;
-            for (let i = 0; i < rowsToAdd; i++) {
-                const emptyRow = document.createElement('tr');
-                emptyRow.innerHTML = `
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                `;
-                tableBody.appendChild(emptyRow);
-            }
-        }
+    const rowsToAdd = 10 - data.length;
+    for (let i = 0; i < rowsToAdd; i++) {
+        const emptyRow = document.createElement('tr');
+        emptyRow.innerHTML = `
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        `;
+        tableBody.appendChild(emptyRow);
+    }
+}
+        
         populateTable(data);
     </script>
     </div>
