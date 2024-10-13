@@ -1,7 +1,7 @@
 let documents = [
-  { name: "Document 1", content: "This is the content of Document 1. It has some interesting parts.", relevancy: "high", annotations: [] },
-  { name: "Document 2", content: "This is the content of Document 2. This document is very detailed.", relevancy: "low", annotations: [] },
-  { name: "Document 3", content: "Here is another document with relevant content.", relevancy: "high", annotations: [] },
+  { name: "fbi.txt", content: "In the quaint village of Eldridge, the renowned sapphire necklace belonging to Lady Margaret has gone missing just days before her 80th birthday. As the townsfolk gather for the celebration, whispers of betrayal and hidden secrets surface. Detective Clara Thompson must sift through a web of jealousy and deceit to uncover the true thief before the night ends in scandal.", relevancy: "high", annotations: [] },
+  { name: "may31.txt", content: "Every night at precisely midnight, a chilling phone call echoes through the old Whitmore estate. The voice on the other end is unrecognizable, leaving cryptic messages that hint at a long-buried family secret. When young journalist Samira Collins decides to investigate, she uncovers a tale of lost love and revenge that could change everything she thought she knew about her family.", relevancy: "low", annotations: [] },
+  { name: "suspect.txt", content: "When art collector Julian Hart discovers an intricately carved puzzle box at an estate sale, he is drawn into a mystery that spans generations. Each piece he unlocks reveals clues about a tragic love story intertwined with a series of unsolved disappearances in the 1920s. As he delves deeper, Julian realizes he may be next in line to solve—or become a victim of—the box’s dark legacy.", relevancy: "high", annotations: [] },
 ];
 
 let filteredDocuments = [...documents]; 
@@ -17,6 +17,23 @@ if (documentName) {
         selectDocument(documentIndex);
     }
 }
+// Mapping of analyses to their associated documents
+const analysisToDocumentsMap = {
+  'Mystery Solving': ['fbi.txt', 'suspect.txt'],
+  'Find the Culprit': ['may31.txt'],
+};
+
+const urlParamsAnalysis = new URLSearchParams(window.location.search);
+const analysisName = urlParamsAnalysis.get('analysis');
+
+// Filter the documents based on the selected analysis
+if (analysisName && analysisToDocumentsMap[analysisName]) {
+  filteredDocuments = documents.filter(doc => analysisToDocumentsMap[analysisName].includes(doc.name));
+} else {
+  filteredDocuments = [...documents]; // Show all documents if no analysis is selected
+}
+
+renderDocumentList(); // Render the list of filtered documents
 
 function renderDocumentList() {
   const documentList = document.getElementById("documentList");
