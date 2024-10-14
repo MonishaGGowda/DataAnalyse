@@ -70,20 +70,20 @@ footer {
     bottom: 0;
 }
 .footer-nav {
-    margin-bottom: 10px; /* Space between nav and content */
+    margin-bottom: 10px; 
 }
 .footer-nav ul {
     list-style-type: none;
     display: flex;
-    justify-content: center; /* Center the navigation links */
-    gap: 30px; /* Space between links */
+    justify-content: center; 
+    gap: 30px; 
 }
 .footer-nav ul li a {
     text-decoration: none;
     color: black;
 }
 .footer-nav ul li a:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline; 
 }
 .footer-content {
     display: flex;
@@ -94,7 +94,7 @@ footer {
 }
 .footer-left {
     display: flex;
-    gap: 10px; /* Space between language buttons */
+    gap: 10px; 
 }
 .footer-left button {
     background-color: #000000;

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Analysis</title>
   <link rel="stylesheet" href="annotation.css">
+  <link rel="stylesheet" href="../styles.css">
+  <title>Data Analyse - Annotate Document</title>
 </head>
 <body>
-  <header>
+  <header-component></header-component>
+  <div class="doc-name">
     <h1 id="analysisTitle">Data Analyse - Annotate Document</h1>
     <nav>
       <ul>
@@ -15,54 +15,62 @@
         <li><a href="../stored-annotations/stored_annotations.html">Connections</a></li>
       </ul>
     </nav>
-  </header>
+  </div>
 
-  <main>
-    <div class="container">
-      <!-- Left pane for document list and relevancy selection -->
-      <div class="left-pane">
-        <h2>Documents</h2>
-        <textarea id="searchBox" placeholder="Enter text to search..."></textarea>
-        <button id="filterButton" onclick="filterDocuments()">Filter</button>
-        <button id="clearFilterButton" onclick="clearFilter()">Clear Filter</button>
-
-        <ul id="documentList">
-          <!-- Document List will be dynamically updated -->
-        </ul>
-        <input type="file" id="fileUpload" accept=".txt" multiple />
-        <button onclick="uploadDocuments()">Upload Documents</button>
-      </div>
-
-      <!-- Center pane for document content -->
-      <div class="center-pane" id="documentContainer">
-        <h2>Document Content</h2>
-        <p>Select a document from the left pane to view its content.</p>
-      </div>
-
-      <!-- Right pane for annotations -->
-      <div class="right-pane">
-        <h2>Annotations</h2>
-        <div id="annotationsContainer">
-          <!-- Annotations will be dynamically added -->
-        </div>
-      </div>
+  <div class="container gap6">
+    <div class="left-pane">
+      <h2>Documents</h2>
+      <textarea id="searchBox" placeholder="Enter text to search..."></textarea>
+      <button id="filterButton" onclick="filterDocuments()">Filter</button>
+      <button id="clearFilterButton" onclick="clearFilter()">Clear Filter</button>
+      <ul id="documentList"></ul>
+      <input type="file" id="fileUpload" accept=".txt" multiple />
+      <button onclick="uploadDocuments()">Upload Documents</button>
     </div>
 
-    <!-- Highlighter button -->
-    <button id="highlightButton" onclick="toggleHighlighter()">Enable Highlighter</button>
-
-    <!-- Annotation Popup -->
-    <div id="annotationPopup" class="popup">
-      <textarea id="annotationText" rows="4" placeholder="Enter your annotation here..."></textarea><br>
-      <button onclick="saveAnnotation()">Add Annotation</button>
-      <button type="button" onclick="closeAnnotationPopup()">Cancel</button>
+    <div class="center-pane" id="documentContainer">
+      <h2>Document Content</h2>
+      <p>Select a document from the left pane to view its content.</p>
     </div>
-  </main>
+
+    <div class="right-pane">
+      <h2>Annotations</h2>
+      <div id="annotationsContainer"></div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <div class="summary-option">
+      <label>
+        <input type="radio" name="summaryType" value="file" checked>
+        File Summary
+      </label>
+      <label>
+        <input type="radio" name="summaryType" value="entire">
+        Entire Analysis Summary
+      </label>
+      <button id="summaryButton" class="summaryButton" onclick="toggleSummary()">Show Summary</button>
+      <button id="highlightButton" class="highlightButton" onclick="toggleHighlighter()">Enable Highlighter</button>
+    </div>
+  </div>
+
+  <div class="summary-container" id="summaryContainer" style="display:none;">
+    <h2>Summary</h2>
+    <p>This section will display the summary of the document or analysis.</p>
+  </div>
+
+  <div id="annotationPopup" class="annotationPopup popup" style="display: none;"> 
+    <textarea id="annotationText" class="annotationText" rows="4" placeholder="Create your notes/annotation"></textarea><br>
+    <button onclick="saveAnnotation()">Add Annotation</button>
+    <button type="button" onclick="closeAnnotationPopup()">Cancel</button>
+  </div>
 
   <footer>
-    <p>&copy; 2024 Data Analyse</p>
-  </footer>
+    <p>&copy; Non Copyrighted © 2024 Upload by DocuSense Technologies</p>
+</footer>
 
+  <script src="../main.js"></script>
   <script src="annotation.js"></script>
+  <script src="../header_component/header_component.js" defer></script>
 </body>
 </html>

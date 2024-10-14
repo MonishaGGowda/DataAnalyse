@@ -1,44 +1,33 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
-  margin: 0;
-  padding: 0;
+  color: black;
+  display: flex;
+  flex-direction: column; 
 }
 
-header {
-  background-color: #333;
-  color: white;
-  padding: 10px 0;
-  text-align: center;
-}
-
-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 20px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
+main {
+  flex: 1; 
+  display: flex; 
+  flex-direction: column;
 }
 
 .container {
   display: flex;
-  justify-content: space-between;
   padding: 20px;
+  height: 60%; 
 }
 
 .left-pane, .center-pane, .right-pane {
   padding: 20px;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
-  height: 500px;
-  overflow-y: auto;
+  overflow-y: auto; 
 }
 
 .left-pane {
@@ -51,33 +40,29 @@ nav ul li a {
 
 .right-pane {
   width: 20%;
+  position: relative; 
 }
 
-#documentContainer {
-  background-color: white;
-  padding: 20px;
-  border: 1px solid #ccc;
-  white-space: pre-wrap;
-  height: calc(100% - 40px);
-  overflow-y: auto;
-}
-
-.highlight {
-  background-color: yellow;
-}
-
-#highlightButton {
-  display: block;
-  margin: 20px auto;
+.highlightButton {
+  margin: 10px;
   padding: 10px 20px;
-  background-color: #007BFF;
+  background-color: #007BFF; 
+  color: white; 
+  border: none; 
+  cursor: pointer; 
+}
+
+.addAnnotationButton {
+  margin-top: 10px; 
+  padding: 10px 20px;
+  background-color: #007BFF; 
   color: white;
   border: none;
   cursor: pointer;
 }
 
-#annotationPopup {
-  display: none;
+.annotationPopup {
+  display: none; 
   position: fixed;
   top: 50%;
   left: 50%;
@@ -86,29 +71,70 @@ nav ul li a {
   border: 1px solid #ccc;
   padding: 20px;
   z-index: 1000;
-  width: 300px; /* Set a width to prevent distortion */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add some shadow for depth */
-  border-radius: 8px; /* Smoothen corners */
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-family: 'Roboto', sans-serif;
 }
 
-#annotationText {
+.button-container {
+  display: flex;
+  justify-content: flex-start; 
+  margin: 10px 20px;
+  height: 40%; 
+  padding: 20px; 
+  background-color: #f9f9f9;
+}
+
+.summary-option {
+  margin: 5px 0;
   width: 100%;
-  height: 100px; /* Define a fixed height */
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-  resize: none; /* Disable resizing to maintain design */
 }
 
-.popup button {
-  margin-right: 10px; /* Add space between buttons */
+.summary-container {
+  display: none; 
+  flex-basis: 75%; 
+  padding: 20px; 
+  background-color: #f9f9f9;
+  border: 1px solid #ccc; 
+  margin: 5px;
+  overflow: auto; 
+  max-height: 300px; 
+  word-wrap: break-word;
 }
 
+.summaryButton {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #28a745; 
+  color: white; 
+  border: none; 
+  cursor: pointer; 
+}
 
 .high-relevancy {
-  color: green;
+  color: green; 
 }
 
 .low-relevancy {
   color: red;
+}
+
+.doc-name{
+  text-align: center;
+}
+
+.doc-name nav{
+  display: block;
+}
+
+
+.annotationText {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    resize: none; 
+    font-family: 'Roboto', sans-serif; 
 }

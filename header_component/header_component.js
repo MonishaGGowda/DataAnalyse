@@ -5,11 +5,11 @@ class HeaderComponent extends HTMLElement {
         <header>
           <nav>
             <div class="logo">
-              <span>DATA ANALYSE</span>
+              <span>DOCUSENSE</span>
             </div>
             <div class="nav-links">
               <a href="../home_page/homepage.html">Home</a>
-              <a href="../login_page/index.html">Logout</a>
+              <a href="../login_page/loginpage.html">Logout</a>
             </div>
           </nav>
         </header>

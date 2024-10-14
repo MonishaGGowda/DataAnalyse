@@ -1,72 +1,94 @@
+
 const annotations = [
     {
-        title: "Annotation 1",
-        source: "Document 1",
-        sourceLink: "document1.html",
-        description: "This is a brief description of Annotation 1.",
+        title: "quaint village of Eldridge",
+        source: "fbi.txt",
+        sourceLink: "fbi.txt",
+        description: "Tells about the place of suspect.",
         dateAdded: "2024-10-10",
-        addedBy: "User A",
-        tags: ["important", "urgent"]
+        tags: ["high"]
     },
     {
-        title: "Annotation 2",
-        source: "Document 2",
+        title: "Whitmore estate",
+        source: "may31.txt",
         sourceLink: "document2.html",
-        description: "This is a brief description of Annotation 2.",
+        description: "Information that might be useful.",
         dateAdded: "2024-10-11",
-        addedBy: "User B",
-        tags: ["casual"]
+        tags: ["low"]
     },
     {
-        title: "Annotation 3",
-        source: "Document 3",
-        sourceLink: "document3.html",
-        description: "This is a brief description of Annotation 3.",
+        title: "Samira Collins",
+        source: "may31.txt",
+        sourceLink: "may31.txt",
+        description: "Maybe helper?",
         dateAdded: "2024-10-12",
-        addedBy: "User A",
-        tags: ["important"]
+        tags: ["high"]
     },
     {
-        title: "Annotation 4",
-        source: "Document 3",
-        sourceLink: "document3.html",
-        description: "This is a brief description of Annotation 4.",
+        title: "Julian Hart discovers",
+        source: "suspect.txt",
+        sourceLink: "suspect.txt",
+        description: "Seems fishy?",
         dateAdded: "2024-10-12",
-        addedBy: "User C",
-        tags: ["urgent", "casual"]
+        tags: ["high"]
     }
 ];
 
 const cardListContainer = document.querySelector('.card-list');
+
+function displayAnnotations(filteredAnnotations) {
+cardListContainer.innerHTML = ''; 
+filteredAnnotations.forEach(annotation => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    card.innerHTML = `
+        <h3 class="annotation-title">${annotation.title}</h3>
+        <p class="source-document">
+            Source: <a href="../annotation/annotation.html?document=${encodeURIComponent(annotation.source)}">${annotation.source}</a>
+        </p>
+        <p class="annotation-text">${annotation.description}</p>
+        <p class="annotation-meta">
+            Date Added: ${annotation.dateAdded}<br>
+        </p>
+        <p class="annotation-tags">
+            Tags: 
+            ${annotation.tags.map(tag => `<span class="tag">${tag}</span>`).join(', ')}
+        </p>
+    `;
+
+    cardListContainer.appendChild(card);
+});
+}
+
 const tagSelect = document.getElementById('tagSelect');
 const filterInput = document.getElementById('filterInput');
 
-function displayAnnotations(filteredAnnotations) {
-    cardListContainer.innerHTML = ''; 
-    filteredAnnotations.forEach(annotation => {
-        const card = document.createElement('div');
-        card.classList.add('card');
+tagSelect.addEventListener('change', function() {
+    const selectedTag = tagSelect.value;
+    const filteredAnnotations = annotations.filter(annotation =>
+        annotation.tags.includes(selectedTag)
+    );
+    displayAnnotations(filteredAnnotations);
+});
 
-        card.innerHTML = `
-            <h3 class="annotation-title">${annotation.title}</h3>
-            <p class="source-document">Source: <a href="${annotation.sourceLink}" target="_blank">${annotation.source}</a></p>
-            <p class="annotation-text">${annotation.description}</p>
-            <p class="annotation-meta">
-                Date Added: ${annotation.dateAdded}<br>
-                Added By: ${annotation.addedBy}
-            </p>
-            <p class="annotation-tags">
-                Tags: 
-                ${annotation.tags.map(tag => `<span class="tag">${tag}</span>`).join(', ')}
-            </p>
-        `;
+filterInput.addEventListener('input', function() {
+    const searchTerm = filterInput.value.toLowerCase();
+    tagSelect.selectedIndex = 0; 
+    const filteredAnnotations = annotations.filter(annotation =>
+        annotation.title.toLowerCase().includes(searchTerm)
+    );
+    displayAnnotations(filteredAnnotations);
+});
 
-        cardListContainer.appendChild(card);
-    });
-}
+resetButton.addEventListener('click', function() {
+    filterInput.value = ''; 
+    tagSelect.selectedIndex = 0; 
+    displayAnnotations(annotations); 
+});
 
 function populateTagSelect() {
-    const tags = new Set(); 
+    const tags = new Set();
     annotations.forEach(annotation => {
         annotation.tags.forEach(tag => tags.add(tag));
     });
@@ -79,25 +101,6 @@ function populateTagSelect() {
     });
 }
 
-function filterAnnotations() {
-    const selectedTag = tagSelect.value;
-    const searchTerm = filterInput.value.toLowerCase();
-    console.log("Inside filter")
 
-    const filteredAnnotations = annotations.filter(annotation => {
-        const matchesTag = selectedTag ? annotation.tags.includes(selectedTag) : true;
-        const matchesSearchTerm = annotation.source.toLowerCase().includes(searchTerm);
-        console.log(annotation,matchesTag,matchesSearchTerm)
-        return matchesTag && matchesSearchTerm;
-    });
-
-    displayAnnotations(filteredAnnotations);
-}
-
-// Add event listeners for filtering
-tagSelect.addEventListener('change', filterAnnotations);
-filterInput.addEventListener('input', filterAnnotations);
-
-// Initially populate and display all annotations
 populateTagSelect();
 displayAnnotations(annotations);

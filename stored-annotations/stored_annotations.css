@@ -54,15 +54,15 @@ body {
 }
 
 .tag-dropdown {
-    position: absolute; /* Position relative to the closest positioned ancestor */
+    position: absolute; 
     z-index: 1000;
-    width: 300px; /* Match the input width for consistency */
+    width: 300px;
     background: white;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 5px; /* Space between input and dropdown */
-    display: none; /* Initially hidden */
+    margin-top: 5px; 
+    display: none;
 }
 
 .tag-item {
@@ -76,8 +76,7 @@ body {
 
 .filter-section {
     display: flex;
-    justify-content: center; /* Center the filter section */
-    margin: 20px 0; /* Optional margin */
+    justify-content: center;
 }
 
 .filter-container {
@@ -86,21 +85,31 @@ body {
     gap: 1em;
 }
 
-#tagSelect {
-    width: 200px; /* Set a fixed width for consistency */
+.tagSelect {
+    width: 200px; 
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
+    margin-right: 10px;
 }
 
-#filterInput {
-    width: 300px; /* Set a fixed width for consistency */
+.filterInput {
+    width: 300px; 
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
-    margin-left: 10px; /* Space between the select and input */
+    margin-left: 10px; 
+}
+
+marginL10{
+    margin-left: 10px;
+}
+
+.resetButton{
+    width: 5em;
+    height: 3em;
 }

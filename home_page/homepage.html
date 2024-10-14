@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Analyse</title>
+    <title>DocuSense</title>
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../pop-up/pop-up.css">
@@ -12,19 +10,19 @@
     <header-component></header-component>
 
     <section class="title">
-        <h1>Data Analyse Helps You <br> Build Amazing Analysis</h1>
-        <p>Tools that Make Data Analyse Easier</p>
+        <h1>DocuSense Helps You <br> Build Amazing Analysis</h1>
+        <p>Tools that Make Data Analysis Easier</p>
     </section>
 
     <section class="features">
         <div class="feature">
             <img src="../icons/create.png" alt="Create">
             <h3>New Analysis</h3>
-            <button id="openPopupBtn" onclick="viewCreatePage()">Create</button>
+            <button id="openPopupBtn">Create</button>
         </div>
 
         <div class="feature">
-            <img src="../icons/1150643.png" alt="View">
+            <img src="../icons/search.png" alt="View">
             <h3>View My Analysis</h3>
             <button onclick="loadViewPage()">Show</button>
         </div>
@@ -34,20 +32,24 @@
         <div class="form-container">
             <span class="close-btn" id="closeBtn">&times;</span>
             <div>
-            <h2>Enter the Analysis</h2>
+            <h2>New Analysis:</h2>
         </div>
-            <label for="Name">Name:</label>
-           
-            <input type="text" id="name" placeholder="Enter the name of the Analysis">
+        <div>
+            <label>Name:</label>
+            <input class="box-size" type="text" id="name" placeholder="Enter the name of the Analysis"></div>
             <div>
-            <label for="desc">Description:</label>
-            <input type="desc" id="desc" placeholder="Enter the description">
-        </div>
+            <label>Description:</label>
+            <input  class="box-size" type="desc" id="desc" placeholder="Enter the description">
+             </div>
             <button type="submit" class="submit-btn">Submit</button>
         </div>
     </div>
+    <footer>
+        <p>&copy; Non Copyrighted © 2024 Upload by DocuSense Technologies</p>
+    </footer>
 
     <script src="../pop-up/pop-up.js"></script>
+    <script src="../main.js"></script>
     <script src="homepage.js"></script>
     <script src="../header_component/header_component.js" defer></script>
 </body>

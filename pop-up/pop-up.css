@@ -1,49 +1,43 @@
-/* pop-up.css */
-
 .popup-form {
-    position: fixed; /* Keeps the pop-up in a fixed position relative to the viewport */
-    top: 50%; /* Center the pop-up vertically */
-    left: 50%; /* Center the pop-up horizontally */
-    transform: translate(-50%, -50%); /* Adjust the positioning to be exactly centered */
-    display: none; /* Hide by default until triggered */
-    z-index: 1000; /* Ensure it's on top of other content */
-    background-color: white; /* Set a background color for the pop-up */
-    border: 2px solid #ccc; /* Light gray border for better visibility */
-    padding: 20px; /* Space around the form content */
-    border-radius: 10px; /* Rounded corners for a polished look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for depth */
-    width: 90%; /* Width relative to the viewport */
-    max-width: 500px; /* Maximum width to prevent it from becoming too large */
-    box-sizing: border-box; /* Include padding in width calculation */
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    display: none; 
+    z-index: 1000;
+    background-color: white;
+    border: 2px solid #ccc; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    width: 90%; 
+    max-width: 500px; 
+    box-sizing: border-box; 
 }
 
-
-/* Close button styling */
 .close-btn {
-    float: right; /* Align close button to the top-right */
-    font-size: 18px; /* Slightly larger font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    color: #555; /* Dark gray color */
+    float: right; 
+    font-size: 18px;
+    cursor: pointer; 
+    color: #555; 
 }
 
-/* Form container styling */
 .form-container {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    gap: 10px; /* Space between form fields */
+    flex-direction: column;
+    gap: 10px; 
 }
 
-/* Styling for the submit button */
 .submit-btn {
-    background-color: #007BFF; /* Blue button color */
-    color: white; /* White text */
-    border: none; /* Remove default borders */
-    padding: 10px; /* Button padding */
-    cursor: pointer; /* Pointer cursor on hover */
-    border-radius: 5px; /* Slightly rounded corners */
-    transition: background-color 0.3s; /* Smooth hover transition */
+    background-color: #007BFF; 
+    color: white;
+    border: none;
+    padding: 10px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    transition: background-color 0.3s; 
 }
 
 .submit-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; 
 }
